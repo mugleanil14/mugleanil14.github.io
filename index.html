@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anil Mugle - Marketing Strategist | Storyteller | Digital Growth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Netflix+Sans:wght@300;400;500;600;700;800&family=Helvetica+Neue:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .netflix-bg {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect width="1920" height="1080" fill="%23141414"/><circle cx="300" cy="200" r="2" fill="%23ffd700" opacity="0.3"/><circle cx="800" cy="150" r="1" fill="%23ff0000" opacity="0.4"/><circle cx="1200" cy="300" r="1.5" fill="%23ffffff" opacity="0.2"/><circle cx="1600" cy="250" r="1" fill="%23ffd700" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-content {
+            background: linear-gradient(77deg, rgba(0,0,0,0.6) 0%, transparent 85%);
+        }
+        
+        .netflix-button {
+            transition: all 0.2s ease;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+        
+        .netflix-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .play-button {
+            background: #ffffff;
+            color: #000000;
+        }
+        
+        .play-button:hover {
+            background: rgba(255,255,255,0.75);
+        }
+        
+        .info-button {
+            background: rgba(109, 109, 110, 0.7);
+            color: white;
+        }
+        
+        .info-button:hover {
+            background: rgba(109, 109, 110, 0.4);
+        }
+        
+        .netflix-row {
+            margin-bottom: 3rem;
+        }
+        
+        .row-title {
+            color: #e5e5e5;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            margin-left: 4%;
+        }
+        
+        .row-container {
+            position: relative;
+            padding: 0 4%;
+        }
+        
+        .row-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.7);
+            border: none;
+            color: white;
+            width: 60px;
+            height: 135px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            opacity: 0;
+            transition: all 0.3s ease;
+            font-size: 2rem;
+        }
+        
+        .row-nav-button:hover {
+            background: rgba(0,0,0,0.9);
+        }
+        
+        .row-nav-button.left {
+            left: 0;
+        }
+        
+        .row-nav-button.right {
+            right: 0;
+        }
+        
+        .row-container:hover .row-nav-button {
+            opacity: 1;
+        }
+        
+        .row-content {
+            display: flex;
+            gap: 0.25rem;
+            overflow-x: auto;
+            overflow-y: visible;
+            padding: 0.5rem 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .row-content::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .netflix-card {
+            min-width: 240px;
+            height: 135px;
+            background: #2f2f2f;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .netflix-card:hover {
+            transform: scale(1.08);
+            z-index: 10;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            border-radius: 8px;
+        }
+        
+        .netflix-card:hover .card-overlay {
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 1.5rem;
+        }
+        
+        .netflix-card:hover .card-title {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .netflix-card:hover .card-subtitle {
+            font-size: 0.8rem;
+            opacity: 1;
+        }
+        
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 1rem;
+            color: white;
+        }
+        
+        .card-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .card-subtitle {
+            font-size: 0.75rem;
+            color: #d2d2d2;
+            opacity: 0.8;
+        }
+        
+        .profile-section {
+            background: #141414;
+            padding: 2rem 4%;
+        }
+        
+        .profile-card {
+            background: #2f2f2f;
+            border-radius: 8px;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #e50914;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #e50914;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .language-badge {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .modal {
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background: #181818;
+            border-radius: 6px;
+            max-width: 850px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            position: relative;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+        }
+        
+        .modal-header-overlay {
+            background: linear-gradient(transparent, rgba(24,24,24,1));
+            padding: 2rem;
+            width: 100%;
+        }
+        
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(42,42,42,0.8);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        
+        .close-button:hover {
+            background: rgba(42,42,42,1);
+        }
+        
+        /* Custom scrollbar for modal */
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .modal-content::-webkit-scrollbar-track {
+            background: #2f2f2f;
+        }
+        
+        .modal-content::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 4px;
+        }
+        
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: #777;
+        }
+        
+        /* Netflix-style preview card */
+        .preview-card {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            background: #181818;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.8);
+            z-index: 30;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .netflix-card:hover .preview-card {
+            transform: translateX(-50%) scale(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .preview-header {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px 8px 0 0;
+            position: relative;
+        }
+        
+        .preview-content {
+            padding: 1rem;
+        }
+        
+        .preview-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .preview-button {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.5);
+            background: rgba(42,42,42,0.6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .preview-button:hover {
+            border-color: white;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .preview-button.play {
+            background: white;
+            color: black;
+            border-color: white;
+        }
+        
+        .preview-button.play:hover {
+            background: rgba(255,255,255,0.8);
+        }
+        
+        .preview-info {
+            font-size: 0.8rem;
+            color: #d2d2d2;
+        }
+        
+        .preview-match {
+            color: #46d369;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .preview-genres {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .preview-genre {
+            font-size: 0.7rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-gradient-to-b from-black to-transparent px-4 py-4">
+        <div class="flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center space-x-8">
+                <h1 class="text-red-600 text-2xl font-bold">ANIL MUGLE</h1>
+                <div class="hidden md:flex space-x-6 text-sm">
+                    <a href="#" class="text-white hover:text-gray-300">Home</a>
+                    <a href="#projects" class="text-gray-300 hover:text-white">Projects</a>
+                    <a href="#about" class="text-gray-300 hover:text-white">About</a>
+                    <a href="#skills" class="text-gray-300 hover:text-white">Skills</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                </svg>
+                <div class="w-8 h-8 bg-red-600 rounded overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/d/1b3nJ_IsTXyoCc3M3T6Hqi4zhPR81bgc9" alt="Anil Mugle" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;><rect width=&quot;100&quot; height=&quot;100&quot; fill=&quot;%23e50914&quot;/><text x=&quot;50&quot; y=&quot;55&quot; text-anchor=&quot;middle&quot; fill=&quot;white&quot; font-size=&quot;40&quot; font-weight=&quot;bold&quot;>AM</text></svg>'; this.alt='Anil Mugle';">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen netflix-bg">
+        <div class="hero-content h-full flex items-center">
+            <div class="max-w-7xl mx-auto px-4 py-20">
+                <div class="max-w-2xl">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">
+                        Marketing<br>
+                        <span class="text-red-600">Strategist</span>
+                    </h1>
+                    <h2 class="text-xl md:text-2xl text-gray-300 mb-6 font-light">
+                        Storyteller | Growth Hacker | Digital Innovation Expert
+                    </h2>
+                    <p class="text-lg text-gray-200 mb-8 max-w-xl leading-relaxed">
+                        From AI challenges at Thales to launching French snack brands, I craft data-driven marketing strategies that turn stories into growth.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="scrollToProjects()" class="netflix-button play-button px-8 py-3 rounded-md text-lg font-bold flex items-center justify-center gap-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                            </svg>
+                            View My Work
+                        </button>
+                        <button onclick="scrollToAbout()" class="netflix-button info-button px-8 py-3 rounded-md text-lg font-bold flex items-center justify-center gap-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                            </svg>
+                            More Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Row -->
+    <section id="projects" class="netflix-row">
+        <h2 class="row-title">Featured Projects</h2>
+        <div class="row-container">
+            <button class="row-nav-button left" onclick="scrollRow(this, 'left')">‹</button>
+            <button class="row-nav-button right" onclick="scrollRow(this, 'right')">›</button>
+            <div class="row-content">
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23000&quot;/><circle cx=&quot;120&quot; cy=&quot;67&quot; r=&quot;30&quot; fill=&quot;none&quot; stroke=&quot;%23e50914&quot; stroke-width=&quot;3&quot;/><circle cx=&quot;120&quot; cy=&quot;67&quot; r=&quot;20&quot; fill=&quot;none&quot; stroke=&quot;%23ffd700&quot; stroke-width=&quot;2&quot;/><circle cx=&quot;120&quot; cy=&quot;67&quot; r=&quot;5&quot; fill=&quot;%23e50914&quot;/><text x=&quot;120&quot; y=&quot;110&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot;>THALES AI</text></svg>')" onclick="openModal('thales')">
+                    <div class="card-overlay">
+                        <div class="card-title">Thales Agentic AI Challenge</div>
+                        <div class="card-subtitle">Innovation • AI/ML • Strategy</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23001122&quot;/><path d=&quot;M60,60 Q120,40 180,70 Q160,90 120,85 Q80,90 60,70 Z&quot; fill=&quot;none&quot; stroke=&quot;%23ffd700&quot; stroke-width=&quot;3&quot;/><circle cx=&quot;100&quot; cy=&quot;65&quot; r=&quot;3&quot; fill=&quot;%23e50914&quot;/><circle cx=&quot;140&quot; cy=&quot;70&quot; r=&quot;3&quot; fill=&quot;%23e50914&quot;/><text x=&quot;120&quot; y=&quot;110&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>AUGIER × KEDGE</text></svg>')" onclick="openModal('augier')">
+                    <div class="card-overlay">
+                        <div class="card-title">Augier × KEDGE Market Entry</div>
+                        <div class="card-subtitle">Strategy • Europe • Growth</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23000&quot;/><rect x=&quot;80&quot; y=&quot;40&quot; width=&quot;80&quot; height=&quot;50&quot; rx=&quot;8&quot; fill=&quot;%23ffd700&quot;/><text x=&quot;120&quot; y=&quot;70&quot; text-anchor=&quot;middle&quot; fill=&quot;%23000&quot; font-size=&quot;16&quot; font-weight=&quot;bold&quot;>M</text><circle cx=&quot;60&quot; cy=&quot;30&quot; r=&quot;4&quot; fill=&quot;%23ffd700&quot; opacity=&quot;0.7&quot;/><circle cx=&quot;180&quot; cy=&quot;35&quot; r=&quot;3&quot; fill=&quot;%23ffd700&quot; opacity=&quot;0.7&quot;/><text x=&quot;120&quot; y=&quot;115&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>MOHARE</text></svg>')" onclick="openModal('mohare')">
+                    <div class="card-overlay">
+                        <div class="card-title">Mohare Brand Launch</div>
+                        <div class="card-subtitle">Branding • Launch • France</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23001a2e&quot;/><path d=&quot;M50,80 Q80,60 120,70 Q160,50 190,75&quot; fill=&quot;none&quot; stroke=&quot;%231da1f2&quot; stroke-width=&quot;4&quot;/><circle cx=&quot;80&quot; cy=&quot;65&quot; r=&quot;4&quot; fill=&quot;%231da1f2&quot;/><circle cx=&quot;120&quot; cy=&quot;70&quot; r=&quot;4&quot; fill=&quot;%231da1f2&quot;/><circle cx=&quot;160&quot; cy=&quot;60&quot; r=&quot;4&quot; fill=&quot;%231da1f2&quot;/><text x=&quot;120&quot; y=&quot;110&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>TWITTER GROWTH</text></svg>')" onclick="openModal('twitter')">
+                    <div class="card-overlay">
+                        <div class="card-title">Twitter Content Strategy</div>
+                        <div class="card-subtitle">Social Media • Growth • Viral</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Originals Row -->
+    <section class="netflix-row">
+        <h2 class="row-title">Social Media Originals</h2>
+        <div class="row-container">
+            <button class="row-nav-button left" onclick="scrollRow(this, 'left')">‹</button>
+            <button class="row-nav-button right" onclick="scrollRow(this, 'right')">›</button>
+            <div class="row-content">
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23833ab4&quot;/><circle cx=&quot;120&quot; cy=&quot;67&quot; r=&quot;25&quot; fill=&quot;none&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;3&quot;/><circle cx=&quot;120&quot; cy=&quot;67&quot; r=&quot;15&quot; fill=&quot;%23fff&quot;/><rect x=&quot;105&quot; y=&quot;52&quot; width=&quot;30&quot; height=&quot;30&quot; rx=&quot;8&quot; fill=&quot;none&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;2&quot;/><path d=&quot;M110,62 L115,67 L130,52&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot;/><text x=&quot;120&quot; y=&quot;110&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>INSTAGRAM</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">Instagram Growth Campaign</div>
+                        <div class="card-subtitle">Original • Viral Content</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23ff0000&quot;/><rect x=&quot;80&quot; y=&quot;40&quot; width=&quot;80&quot; height=&quot;50&quot; rx=&quot;8&quot; fill=&quot;%23fff&quot;/><polygon points=&quot;110,55 110,75 130,65&quot; fill=&quot;%23ff0000&quot;/><circle cx=&quot;60&quot; cy=&quot;30&quot; r=&quot;3&quot; fill=&quot;%23fff&quot; opacity=&quot;0.8&quot;/><circle cx=&quot;180&quot; cy=&quot;35&quot; r=&quot;2&quot; fill=&quot;%23fff&quot; opacity=&quot;0.8&quot;/><circle cx=&quot;200&quot; cy=&quot;100&quot; r=&quot;2&quot; fill=&quot;%23fff&quot; opacity=&quot;0.8&quot;/><text x=&quot;120&quot; y=&quot;115&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>YOUTUBE</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">YouTube Analytics Deep Dive</div>
+                        <div class="card-subtitle">Original • Performance</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%230077b5&quot;/><rect x=&quot;90&quot; y=&quot;45&quot; width=&quot;60&quot; height=&quot;40&quot; rx=&quot;4&quot; fill=&quot;%23fff&quot;/><circle cx=&quot;105&quot; cy=&quot;58&quot; r=&quot;6&quot; fill=&quot;%230077b5&quot;/><rect x=&quot;115&quot; y=&quot;55&quot; width=&quot;25&quot; height=&quot;3&quot; fill=&quot;%230077b5&quot;/><rect x=&quot;115&quot; y=&quot;60&quot; width=&quot;20&quot; height=&quot;2&quot; fill=&quot;%230077b5&quot;/><rect x=&quot;95&quot; y=&quot;70&quot; width=&quot;15&quot; height=&quot;2&quot; fill=&quot;%230077b5&quot;/><rect x=&quot;115&quot; y=&quot;70&quot; width=&quot;15&quot; height=&quot;2&quot; fill=&quot;%230077b5&quot;/><rect x=&quot;135&quot; y=&quot;70&quot; width=&quot;10&quot; height=&quot;2&quot; fill=&quot;%230077b5&quot;/><text x=&quot;120&quot; y=&quot;110&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>LINKEDIN</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">LinkedIn B2B Strategy</div>
+                        <div class="card-subtitle">Original • Professional</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%231da1f2&quot;/><path d=&quot;M80,70 Q100,50 120,65 Q140,45 160,70&quot; fill=&quot;none&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;4&quot;/><circle cx=&quot;100&quot; cy=&quot;60&quot; r=&quot;4&quot; fill=&quot;%23fff&quot;/><circle cx=&quot;120&quot; cy=&quot;65&quot; r=&quot;4&quot; fill=&quot;%23fff&quot;/><circle cx=&quot;140&quot; cy=&quot;55&quot; r=&quot;4&quot; fill=&quot;%23fff&quot;/><path d=&quot;M70,85 L90,75 L85,70 L75,75 Z&quot; fill=&quot;%23fff&quot;/><path d=&quot;M150,85 L170,75 L165,70 L155,75 Z&quot; fill=&quot;%23fff&quot;/><text x=&quot;120&quot; y=&quot;115&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>TWITTER</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">Twitter Thread Mastery</div>
+                        <div class="card-subtitle">Original • Storytelling</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO & Analytics Row -->
+    <section class="netflix-row">
+        <h2 class="row-title">SEO & Analytics</h2>
+        <div class="row-container">
+            <button class="row-nav-button left" onclick="scrollRow(this, 'left')">‹</button>
+            <button class="row-nav-button right" onclick="scrollRow(this, 'right')">›</button>
+            <div class="row-content">
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23001100&quot;/><rect x=&quot;30&quot; y=&quot;20&quot; width=&quot;180&quot; height=&quot;90&quot; rx=&quot;8&quot; fill=&quot;%23000&quot; stroke=&quot;%2310b981&quot; stroke-width=&quot;2&quot;/><polyline points=&quot;50,90 70,70 90,50 110,40 130,25 150,20 170,15 190,10&quot; fill=&quot;none&quot; stroke=&quot;%2310b981&quot; stroke-width=&quot;3&quot;/><circle cx=&quot;70&quot; cy=&quot;70&quot; r=&quot;3&quot; fill=&quot;%2310b981&quot;/><circle cx=&quot;90&quot; cy=&quot;50&quot; r=&quot;3&quot; fill=&quot;%2310b981&quot;/><circle cx=&quot;110&quot; cy=&quot;40&quot; r=&quot;3&quot; fill=&quot;%2310b981&quot;/><circle cx=&quot;130&quot; cy=&quot;25&quot; r=&quot;3&quot; fill=&quot;%2310b981&quot;/><rect x=&quot;40&quot; y=&quot;100&quot; width=&quot;8&quot; height=&quot;3&quot; fill=&quot;%2310b981&quot;/><rect x=&quot;60&quot; y=&quot;100&quot; width=&quot;8&quot; height=&quot;3&quot; fill=&quot;%2310b981&quot;/><rect x=&quot;80&quot; y=&quot;100&quot; width=&quot;8&quot; height=&quot;3&quot; fill=&quot;%2310b981&quot;/><text x=&quot;120&quot; y=&quot;125&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;10&quot; font-weight=&quot;bold&quot;>ANALYTICS</text></svg>')">
+                    <div class="card-overlay">
+                        <div class="card-title">Growth Analytics Dashboard</div>
+                        <div class="card-subtitle">Data • Insights • ROI</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23001a33&quot;/><rect x=&quot;40&quot; y=&quot;30&quot; width=&quot;160&quot; height=&quot;80&quot; rx=&quot;8&quot; fill=&quot;%23fff&quot;/><rect x=&quot;50&quot; y=&quot;40&quot; width=&quot;140&quot; height=&quot;8&quot; fill=&quot;%23e5e5e5&quot;/><rect x=&quot;50&quot; y=&quot;52&quot; width=&quot;100&quot; height=&quot;6&quot; fill=&quot;%233b82f6&quot;/><rect x=&quot;50&quot; y=&quot;62&quot; width=&quot;120&quot; height=&quot;6&quot; fill=&quot;%233b82f6&quot;/><rect x=&quot;50&quot; y=&quot;72&quot; width=&quot;80&quot; height=&quot;6&quot; fill=&quot;%233b82f6&quot;/><rect x=&quot;50&quot; y=&quot;82&quot; width=&quot;110&quot; height=&quot;6&quot; fill=&quot;%233b82f6&quot;/><rect x=&quot;50&quot; y=&quot;92&quot; width=&quot;90&quot; height=&quot;6&quot; fill=&quot;%233b82f6&quot;/><circle cx=&quot;210&quot; cy=&quot;25&quot; r=&quot;3&quot; fill=&quot;%233b82f6&quot;/><circle cx=&quot;220&quot; cy=&quot;35&quot; r=&quot;2&quot; fill=&quot;%233b82f6&quot;/><text x=&quot;120&quot; y=&quot;125&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;10&quot; font-weight=&quot;bold&quot;>KEYWORD RESEARCH</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">Keyword Research Mastery</div>
+                        <div class="card-subtitle">SEO • Search • Rankings</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%232d1b69&quot;/><rect x=&quot;60&quot; y=&quot;40&quot; width=&quot;120&quot; height=&quot;60&quot; rx=&quot;8&quot; fill=&quot;%23fff&quot;/><rect x=&quot;70&quot; y=&quot;50&quot; width=&quot;50&quot; height=&quot;20&quot; fill=&quot;%238b5cf6&quot;/><rect x=&quot;130&quot; y=&quot;50&quot; width=&quot;40&quot; height=&quot;20&quot; fill=&quot;%23a855f7&quot;/><rect x=&quot;70&quot; y=&quot;75&quot; width=&quot;100&quot; height=&quot;4&quot; fill=&quot;%238b5cf6&quot;/><rect x=&quot;70&quot; y=&quot;82&quot; width=&quot;80&quot; height=&quot;4&quot; fill=&quot;%238b5cf6&quot;/><rect x=&quot;70&quot; y=&quot;89&quot; width=&quot;90&quot; height=&quot;4&quot; fill=&quot;%238b5cf6&quot;/><circle cx=&quot;40&quot; cy=&quot;30&quot; r=&quot;4&quot; fill=&quot;%23a855f7&quot;/><circle cx=&quot;200&quot; cy=&quot;25&quot; r=&quot;3&quot; fill=&quot;%23a855f7&quot;/><circle cx=&quot;30&quot; cy=&quot;110&quot; r=&quot;2&quot; fill=&quot;%23a855f7&quot;/><text x=&quot;120&quot; y=&quot;125&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;10&quot; font-weight=&quot;bold&quot;>CONVERSION OPT</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">Conversion Optimization</div>
+                        <div class="card-subtitle">CRO • Testing • Results</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23331a00&quot;/><rect x=&quot;50&quot; y=&quot;35&quot; width=&quot;140&quot; height=&quot;70&quot; rx=&quot;8&quot; fill=&quot;%23fff&quot;/><circle cx=&quot;80&quot; cy=&quot;55&quot; r=&quot;12&quot; fill=&quot;%23f59e0b&quot;/><text x=&quot;80&quot; y=&quot;60&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;8&quot; font-weight=&quot;bold&quot;>G</text><rect x=&quot;100&quot; y=&quot;45&quot; width=&quot;80&quot; height=&quot;6&quot; fill=&quot;%23f59e0b&quot;/><rect x=&quot;100&quot; y=&quot;55&quot; width=&quot;60&quot; height=&quot;4&quot; fill=&quot;%23f59e0b&quot;/><rect x=&quot;100&quot; y=&quot;63&quot; width=&quot;70&quot; height=&quot;4&quot; fill=&quot;%23f59e0b&quot;/><rect x=&quot;60&quot; y=&quot;75&quot; width=&quot;30&quot; height=&quot;20&quot; fill=&quot;%2310b981&quot;/><rect x=&quot;100&quot; y=&quot;75&quot; width=&quot;30&quot; height=&quot;20&quot; fill=&quot;%23ef4444&quot;/><rect x=&quot;140&quot; y=&quot;75&quot; width=&quot;30&quot; height=&quot;20&quot; fill=&quot;%233b82f6&quot;/><circle cx=&quot;30&quot; cy=&quot;25&quot; r=&quot;3&quot; fill=&quot;%23f59e0b&quot;/><circle cx=&quot;210&quot; cy=&quot;30&quot; r=&quot;2&quot; fill=&quot;%23f59e0b&quot;/><text x=&quot;120&quot; y=&quot;125&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;10&quot; font-weight=&quot;bold&quot;>GOOGLE ADS</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">Google Ads Performance</div>
+                        <div class="card-subtitle">PPC • ROAS • Scale</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative Shows Row -->
+    <section class="netflix-row">
+        <h2 class="row-title">Creative Shows</h2>
+        <div class="row-container">
+            <button class="row-nav-button left" onclick="scrollRow(this, 'left')">‹</button>
+            <button class="row-nav-button right" onclick="scrollRow(this, 'right')">›</button>
+            <div class="row-content">
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23a855f7&quot;/><circle cx=&quot;80&quot; cy=&quot;50&quot; r=&quot;15&quot; fill=&quot;%23fff&quot; opacity=&quot;0.9&quot;/><rect x=&quot;110&quot; y=&quot;40&quot; width=&quot;20&quot; height=&quot;20&quot; fill=&quot;%23fff&quot; opacity=&quot;0.9&quot;/><polygon points=&quot;150,35 165,50 150,65 135,50&quot; fill=&quot;%23fff&quot; opacity=&quot;0.9&quot;/><path d=&quot;M60,80 Q120,70 180,85&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot; opacity=&quot;0.8&quot;/><circle cx=&quot;70&quot; cy=&quot;25&quot; r=&quot;3&quot; fill=&quot;%23ffd700&quot;/><circle cx=&quot;190&quot; cy=&quot;30&quot; r=&quot;2&quot; fill=&quot;%23ffd700&quot;/><text x=&quot;120&quot; y=&quot;115&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;11&quot; font-weight=&quot;bold&quot;>BRANDING STUDIO</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">The Branding Studio</div>
+                        <div class="card-subtitle">Creative • Agency • Design</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%233b82f6&quot;/><circle cx=&quot;80&quot; cy=&quot;50&quot; r=&quot;8&quot; fill=&quot;%23fff&quot;/><circle cx=&quot;120&quot; cy=&quot;45&quot; r=&quot;8&quot; fill=&quot;%23fff&quot;/><circle cx=&quot;160&quot; cy=&quot;55&quot; r=&quot;8&quot; fill=&quot;%23fff&quot;/><line x1=&quot;88&quot; y1=&quot;50&quot; x2=&quot;112&quot; y2=&quot;45&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;2&quot;/><line x1=&quot;128&quot; y1=&quot;45&quot; x2=&quot;152&quot; y2=&quot;55&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;2&quot;/><circle cx=&quot;100&quot; cy=&quot;80&quot; r=&quot;6&quot; fill=&quot;%23fff&quot; opacity=&quot;0.7&quot;/><circle cx=&quot;140&quot; cy=&quot;75&quot; r=&quot;6&quot; fill=&quot;%23fff&quot; opacity=&quot;0.7&quot;/><line x1=&quot;106&quot; y1=&quot;80&quot; x2=&quot;134&quot; y2=&quot;75&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;2&quot; opacity=&quot;0.7&quot;/><text x=&quot;120&quot; y=&quot;115&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>NBLIK</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">NbliK Community Growth</div>
+                        <div class="card-subtitle">Startup • Community • Network</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23ef4444&quot;/><rect x=&quot;90&quot; y=&quot;35&quot; width=&quot;60&quot; height=&quot;40&quot; rx=&quot;5&quot; fill=&quot;none&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;3&quot;/><text x=&quot;120&quot; y=&quot;60&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;16&quot; font-weight=&quot;bold&quot;>B</text><circle cx=&quot;70&quot; cy=&quot;85&quot; r=&quot;4&quot; fill=&quot;%23fff&quot;/><rect x=&quot;85&quot; y=&quot;81&quot; width=&quot;8&quot; height=&quot;8&quot; fill=&quot;%23fff&quot;/><polygon points=&quot;105,77 113,85 105,93 97,85&quot; fill=&quot;%23fff&quot;/><circle cx=&quot;125&quot; cy=&quot;85&quot; r=&quot;4&quot; fill=&quot;%23fff&quot;/><rect x=&quot;140&quot; y=&quot;81&quot; width=&quot;8&quot; height=&quot;8&quot; fill=&quot;%23fff&quot;/><polygon points=&quot;160,77 168,85 160,93 152,85&quot; fill=&quot;%23fff&quot;/><text x=&quot;120&quot; y=&quot;115&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;11&quot; font-weight=&quot;bold&quot;>BRAND IDENTITY</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">Brand Identity Projects</div>
+                        <div class="card-subtitle">Design • Identity • Strategy</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%2310b981&quot;/><rect x=&quot;80&quot; y=&quot;40&quot; width=&quot;80&quot; height=&quot;50&quot; rx=&quot;8&quot; fill=&quot;none&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;3&quot;/><circle cx=&quot;100&quot; cy=&quot;60&quot; r=&quot;6&quot; fill=&quot;%23fff&quot;/><circle cx=&quot;120&quot; cy=&quot;55&quot; r=&quot;6&quot; fill=&quot;%23fff&quot;/><circle cx=&quot;140&quot; cy=&quot;70&quot; r=&quot;6&quot; fill=&quot;%23fff&quot;/><path d=&quot;M100,60 L120,55 L140,70&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot;/><rect x=&quot;60&quot; y=&quot;25&quot; width=&quot;6&quot; height=&quot;6&quot; fill=&quot;%23fff&quot; opacity=&quot;0.8&quot;/><rect x=&quot;174&quot; y=&quot;30&quot; width=&quot;4&quot; height=&quot;4&quot; fill=&quot;%23fff&quot; opacity=&quot;0.8&quot;/><rect x=&quot;190&quot; y=&quot;100&quot; width=&quot;4&quot; height=&quot;4&quot; fill=&quot;%23fff&quot; opacity=&quot;0.8&quot;/><text x=&quot;120&quot; y=&quot;115&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;10&quot; font-weight=&quot;bold&quot;>DIGITAL TRANSFORM</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">Digital Transformation</div>
+                        <div class="card-subtitle">Innovation • Tech • Growth</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Row -->
+    <section class="netflix-row">
+        <h2 class="row-title">Certifications & Learning</h2>
+        <div class="row-container">
+            <button class="row-nav-button left" onclick="scrollRow(this, 'left')">‹</button>
+            <button class="row-nav-button right" onclick="scrollRow(this, 'right')">›</button>
+            <div class="row-content">
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%231877f2&quot;/><rect x=&quot;80&quot; y=&quot;35&quot; width=&quot;80&quot; height=&quot;60&quot; rx=&quot;8&quot; fill=&quot;%23fff&quot;/><circle cx=&quot;120&quot; cy=&quot;55&quot; r=&quot;12&quot; fill=&quot;%231877f2&quot;/><path d=&quot;M115,50 L118,53 L125,46&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;2&quot; fill=&quot;none&quot;/><rect x=&quot;90&quot; y=&quot;70&quot; width=&quot;60&quot; height=&quot;3&quot; fill=&quot;%231877f2&quot;/><rect x=&quot;90&quot; y=&quot;76&quot; width=&quot;45&quot; height=&quot;2&quot; fill=&quot;%231877f2&quot;/><rect x=&quot;90&quot; y=&quot;81&quot; width=&quot;35&quot; height=&quot;2&quot; fill=&quot;%231877f2&quot;/><text x=&quot;120&quot; y=&quot;115&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>META</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">Meta Digital Marketing</div>
+                        <div class="card-subtitle">Certificate • Meta • 2024</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23003087&quot;/><rect x=&quot;70&quot; y=&quot;30&quot; width=&quot;100&quot; height=&quot;70&quot; rx=&quot;8&quot; fill=&quot;%23fff&quot;/><rect x=&quot;80&quot; y=&quot;40&quot; width=&quot;80&quot; height=&quot;25&quot; fill=&quot;%23003087&quot;/><text x=&quot;120&quot; y=&quot;57&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot;>DUKE</text><rect x=&quot;85&quot; y=&quot;70&quot; width=&quot;70&quot; height=&quot;3&quot; fill=&quot;%23003087&quot;/><rect x=&quot;85&quot; y=&quot;76&quot; width=&quot;50&quot; height=&quot;2&quot; fill=&quot;%23003087&quot;/><rect x=&quot;85&quot; y=&quot;81&quot; width=&quot;60&quot; height=&quot;2&quot; fill=&quot;%23003087&quot;/><circle cx=&quot;145&quot; cy=&quot;88&quot; r=&quot;6&quot; fill=&quot;%23ffd700&quot;/><text x=&quot;120&quot; y=&quot;115&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>DUKE</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">Duke Business Analytics</div>
+                        <div class="card-subtitle">Certificate • Duke • 2024</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%2300356b&quot;/><rect x=&quot;70&quot; y=&quot;25&quot; width=&quot;100&quot; height=&quot;80&quot; rx=&quot;10&quot; fill=&quot;%23fff&quot;/><rect x=&quot;80&quot; y=&quot;35&quot; width=&quot;80&quot; height=&quot;30&quot; fill=&quot;%2300356b&quot;/><text x=&quot;120&quot; y=&quot;55&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;16&quot; font-weight=&quot;bold&quot;>Y</text><rect x=&quot;85&quot; y=&quot;70&quot; width=&quot;70&quot; height=&quot;3&quot; fill=&quot;%2300356b&quot;/><rect x=&quot;85&quot; y=&quot;76&quot; width=&quot;55&quot; height=&quot;2&quot; fill=&quot;%2300356b&quot;/><rect x=&quot;85&quot; y=&quot;81&quot; width=&quot;45&quot; height=&quot;2&quot; fill=&quot;%2300356b&quot;/><polygon points=&quot;140,88 150,93 140,98 130,93&quot; fill=&quot;%23ffd700&quot;/><text x=&quot;120&quot; y=&quot;120&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>YALE</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">Yale Psychology & Marketing</div>
+                        <div class="card-subtitle">Certificate • Yale • 2023</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%2300338d&quot;/><rect x=&quot;65&quot; y=&quot;30&quot; width=&quot;110&quot; height=&quot;70&quot; rx=&quot;8&quot; fill=&quot;%23fff&quot;/><rect x=&quot;75&quot; y=&quot;40&quot; width=&quot;90&quot; height=&quot;25&quot; fill=&quot;%2300338d&quot;/><text x=&quot;120&quot; y=&quot;57&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>KPMG</text><rect x=&quot;80&quot; y=&quot;70&quot; width=&quot;80&quot; height=&quot;3&quot; fill=&quot;%2300338d&quot;/><rect x=&quot;80&quot; y=&quot;76&quot; width=&quot;60&quot; height=&quot;2&quot; fill=&quot;%2300338d&quot;/><rect x=&quot;80&quot; y=&quot;81&quot; width=&quot;70&quot; height=&quot;2&quot; fill=&quot;%2300338d&quot;/><circle cx=&quot;145&quot; cy=&quot;88&quot; r=&quot;5&quot; fill=&quot;%23ffd700&quot;/><path d=&quot;M142,85 L145,88 L148,85&quot; stroke=&quot;%23fff&quot; stroke-width=&quot;1&quot; fill=&quot;none&quot;/><text x=&quot;120&quot; y=&quot;115&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>KPMG</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">KPMG Data Analytics</div>
+                        <div class="card-subtitle">Certificate • KPMG • 2023</div>
+                    </div>
+                </div>
+
+                <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23862633&quot;/><rect x=&quot;60&quot; y=&quot;25&quot; width=&quot;120&quot; height=&quot;80&quot; rx=&quot;10&quot; fill=&quot;%23fff&quot;/><rect x=&quot;70&quot; y=&quot;35&quot; width=&quot;100&quot; height=&quot;30&quot; fill=&quot;%23862633&quot;/><text x=&quot;120&quot; y=&quot;55&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;10&quot; font-weight=&quot;bold&quot;>UNIVERSITY</text><text x=&quot;120&quot; y=&quot;65&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;10&quot; font-weight=&quot;bold&quot;>OF LONDON</text><rect x=&quot;75&quot; y=&quot;75&quot; width=&quot;90&quot; height=&quot;3&quot; fill=&quot;%23862633&quot;/><rect x=&quot;75&quot; y=&quot;81&quot; width=&quot;70&quot; height=&quot;2&quot; fill=&quot;%23862633&quot;/><rect x=&quot;75&quot; y=&quot;86&quot; width=&quot;80&quot; height=&quot;2&quot; fill=&quot;%23862633&quot;/><circle cx=&quot;150&quot; cy=&quot;93&quot; r=&quot;6&quot; fill=&quot;%23ffd700&quot;/><text x=&quot;120&quot; y=&quot;120&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;11&quot; font-weight=&quot;bold&quot;>LONDON</text></svg>');">
+                    <div class="card-overlay">
+                        <div class="card-title">University of London</div>
+                        <div class="card-subtitle">Strategic Marketing • 2023</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="profile-section">
+        <div class="profile-card">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-shrink-0">
+                    <img src="https://lh3.googleusercontent.com/d/1b3nJ_IsTXyoCc3M3T6Hqi4zhPR81bgc9" alt="Anil Mugle" class="profile-image" onerror="this.src='data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 120 120&quot;><rect width=&quot;120&quot; height=&quot;120&quot; rx=&quot;60&quot; fill=&quot;%23e50914&quot;/><text x=&quot;60&quot; y=&quot;70&quot; text-anchor=&quot;middle&quot; fill=&quot;white&quot; font-size=&quot;40&quot; font-weight=&quot;bold&quot;>AM</text></svg>'; this.alt='Anil Mugle';">
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <h2 class="text-3xl font-bold mb-2 text-white">Anil Mugle</h2>
+                    <p class="text-xl text-gray-300 mb-4">Marketing Analyst | Storyteller | Growth Hacker</p>
+                    
+                    <div class="mb-6">
+                        <p class="text-gray-400 mb-3 text-sm">Currently Watching:</p>
+                        <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                            <span class="badge">Brand Building</span>
+                            <span class="badge">SEO Mastery</span>
+                            <span class="badge">Digital Ads</span>
+                            <span class="badge">AI Marketing</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <p class="text-gray-400 mb-3 text-sm">Languages:</p>
+                        <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                            <span class="badge language-badge">EN</span>
+                            <span class="badge language-badge">FR</span>
+                            <span class="badge language-badge">HI</span>
+                            <span class="badge language-badge">MR</span>
+                            <span class="badge language-badge">TE</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-300 leading-relaxed">
+                        From crafting AI solutions at Thales to launching premium snack brands in France, I specialize in turning complex marketing challenges into growth opportunities. My approach combines data-driven insights with compelling storytelling to create campaigns that resonate and convert.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 z-50 hidden modal">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="modal-content w-full">
+                <div id="modalHeader" class="modal-header">
+                    <button class="close-button" onclick="closeModal()">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <div class="modal-header-overlay">
+                        <h2 id="modalTitle" class="text-4xl font-bold mb-4"></h2>
+                        <div class="flex gap-4 mb-4">
+                            <button class="netflix-button play-button px-6 py-2 rounded-md font-bold flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                                </svg>
+                                View Details
+                            </button>
+                            <button class="netflix-button info-button px-6 py-2 rounded-md font-bold flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0v-.5A1.5 1.5 0 0114.5 6c.526 0 .988-.27 1.256-.679a6.012 6.012 0 011.912 2.706A8.012 8.012 0 0110 18a8.012 8.012 0 01-7.668-10.027z" clip-rule="evenodd"></path>
+                                </svg>
+                                Add to List
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div id="modalContent" class="text-gray-300"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollToProjects() {
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToAbout() {
+            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openModal(projectId) {
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            const modalHeader = document.getElementById('modalHeader');
+            
+            const projects = {
+                thales: {
+                    title: 'Thales Agentic AI Challenge',
+                    background: 'linear-gradient(rgba(0,0,0,0.4), rgba(24,24,24,1)), url("data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 850 400\'><rect width=\'850\' height=\'400\' fill=\'%23000\'/><circle cx=\'425\' cy=\'200\' r=\'80\' fill=\'none\' stroke=\'%23e50914\' stroke-width=\'4\'/><circle cx=\'425\' cy=\'200\' r=\'50\' fill=\'none\' stroke=\'%23ffd700\' stroke-width=\'3\'/><circle cx=\'425\' cy=\'200\' r=\'20\' fill=\'%23e50914\'/></svg>")',
+                    content: `
+                        <div class="grid md:grid-cols-3 gap-8 mb-8">
+                            <div class="md:col-span-2">
+                                <h3 class="text-2xl font-bold text-white mb-4">Project Overview</h3>
+                                <p class="text-lg mb-6 leading-relaxed">
+                                    Developed innovative AI solutions for Thales' Agentic AI Challenge, focusing on autonomous decision-making systems and intelligent automation. The project involved creating sophisticated AI agents capable of independent reasoning and adaptive learning.
+                                </p>
+                                
+                                <h4 class="text-xl font-semibold text-red-500 mb-3">Key Achievements</h4>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-500 mt-1">•</span>
+                                        <span>Designed autonomous AI agents with advanced decision-making capabilities</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-500 mt-1">•</span>
+                                        <span>Implemented machine learning algorithms for predictive analytics</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-500 mt-1">•</span>
+                                        <span>Created intelligent decision frameworks for complex scenarios</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-500 mt-1">•</span>
+                                        <span>Optimized system performance achieving 40% efficiency improvement</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-semibold text-yellow-500 mb-3">Technologies</h4>
+                                <div class="space-y-2 mb-6">
+                                    <span class="badge">AI/ML</span>
+                                    <span class="badge">Python</span>
+                                    <span class="badge">TensorFlow</span>
+                                    <span class="badge">Neural Networks</span>
+                                    <span class="badge">Deep Learning</span>
+                                </div>
+                                
+                                <h4 class="text-xl font-semibold text-blue-500 mb-3">Impact</h4>
+                                <div class="space-y-3">
+                                    <div class="bg-gray-800 p-3 rounded">
+                                        <div class="text-2xl font-bold text-green-500">40%</div>
+                                        <div class="text-sm text-gray-400">Efficiency Improvement</div>
+                                    </div>
+                                    <div class="bg-gray-800 p-3 rounded">
+                                        <div class="text-2xl font-bold text-blue-500">95%</div>
+                                        <div class="text-sm text-gray-400">Accuracy Rate</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                augier: {
+                    title: 'Augier × KEDGE Market Entry',
+                    background: 'linear-gradient(rgba(0,0,0,0.4), rgba(24,24,24,1)), url("data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 850 400\'><rect width=\'850\' height=\'400\' fill=\'%23001122\'/><path d=\'M200,200 Q425,150 650,220 Q600,280 425,270 Q250,280 200,220 Z\' fill=\'none\' stroke=\'%23ffd700\' stroke-width=\'4\'/></svg>")',
+                    content: `
+                        <div class="grid md:grid-cols-3 gap-8 mb-8">
+                            <div class="md:col-span-2">
+                                <h3 class="text-2xl font-bold text-white mb-4">Strategic Market Entry</h3>
+                                <p class="text-lg mb-6 leading-relaxed">
+                                    Developed comprehensive market entry strategy for Augier's expansion into European markets. Conducted extensive market research, competitive analysis, and consumer behavior studies to identify optimal entry points and positioning strategies.
+                                </p>
+                                
+                                <h4 class="text-xl font-semibold text-yellow-500 mb-3">Strategy Components</h4>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-yellow-500 mt-1">•</span>
+                                        <span>Comprehensive market research across 5 European countries</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-yellow-500 mt-1">•</span>
+                                        <span>Competitive landscape analysis and positioning strategy</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-yellow-500 mt-1">•</span>
+                                        <span>Consumer behavior insights and segmentation</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-yellow-500 mt-1">•</span>
+                                        <span>Go-to-market strategy with phased rollout plan</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-semibold text-green-500 mb-3">Results</h4>
+                                <div class="space-y-3 mb-6">
+                                    <div class="bg-gray-800 p-3 rounded">
+                                        <div class="text-2xl font-bold text-green-500">40%</div>
+                                        <div class="text-sm text-gray-400">Market Penetration</div>
+                                    </div>
+                                    <div class="bg-gray-800 p-3 rounded">
+                                        <div class="text-2xl font-bold text-blue-500">€2.5M</div>
+                                        <div class="text-sm text-gray-400">Revenue Generated</div>
+                                    </div>
+                                    <div class="bg-gray-800 p-3 rounded">
+                                        <div class="text-2xl font-bold text-purple-500">85%</div>
+                                        <div class="text-sm text-gray-400">Brand Awareness</div>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="text-xl font-semibold text-blue-500 mb-3">Markets</h4>
+                                <div class="space-y-2">
+                                    <span class="badge">France</span>
+                                    <span class="badge">Germany</span>
+                                    <span class="badge">Spain</span>
+                                    <span class="badge">Italy</span>
+                                    <span class="badge">Netherlands</span>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                mohare: {
+                    title: 'Mohare Brand Launch',
+                    background: 'linear-gradient(rgba(0,0,0,0.4), rgba(24,24,24,1)), url("data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 850 400\'><rect width=\'850\' height=\'400\' fill=\'%232d1810\'/><rect x=\'350\' y=\'150\' width=\'150\' height=\'100\' rx=\'10\' fill=\'%23ffd700\'/><text x=\'425\' y=\'210\' text-anchor=\'middle\' fill=\'%23000\' font-size=\'24\' font-weight=\'bold\'>MOHARE</text></svg>")',
+                    content: `
+                        <div class="grid md:grid-cols-3 gap-8 mb-8">
+                            <div class="md:col-span-2">
+                                <h3 class="text-2xl font-bold text-white mb-4">Premium French Snack Brand</h3>
+                                <p class="text-lg mb-6 leading-relaxed">
+                                    Successfully launched Mohare, a premium French snack brand featuring Makhana (fox nuts). Led the complete brand development process from concept to market entry, including brand identity, packaging design, and comprehensive marketing strategy.
+                                </p>
+                                
+                                <h4 class="text-xl font-semibold text-yellow-500 mb-3">Brand Development</h4>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-yellow-500 mt-1">•</span>
+                                        <span>Complete brand identity and visual system design</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-yellow-500 mt-1">•</span>
+                                        <span>Premium packaging development with sustainable materials</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-yellow-500 mt-1">•</span>
+                                        <span>Market positioning as healthy luxury snack alternative</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-yellow-500 mt-1">•</span>
+                                        <span>Multi-channel launch campaign execution</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-semibold text-green-500 mb-3">Launch Results</h4>
+                                <div class="space-y-3 mb-6">
+                                    <div class="bg-gray-800 p-3 rounded">
+                                        <div class="text-2xl font-bold text-green-500">150%</div>
+                                        <div class="text-sm text-gray-400">Sales Target Exceeded</div>
+                                    </div>
+                                    <div class="bg-gray-800 p-3 rounded">
+                                        <div class="text-2xl font-bold text-blue-500">25+</div>
+                                        <div class="text-sm text-gray-400">Retail Partners</div>
+                                    </div>
+                                    <div class="bg-gray-800 p-3 rounded">
+                                        <div class="text-2xl font-bold text-purple-500">4.8/5</div>
+                                        <div class="text-sm text-gray-400">Customer Rating</div>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="text-xl font-semibold text-red-500 mb-3">Channels</h4>
+                                <div class="space-y-2">
+                                    <span class="badge">Retail Stores</span>
+                                    <span class="badge">E-commerce</span>
+                                    <span class="badge">Social Media</span>
+                                    <span class="badge">Influencer Marketing</span>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                twitter: {
+                    title: 'Twitter Content Strategy',
+                    background: 'linear-gradient(rgba(0,0,0,0.4), rgba(24,24,24,1)), url("data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 850 400\'><rect width=\'850\' height=\'400\' fill=\'%23001a2e\'/><path d=\'M200,250 Q300,200 425,220 Q550,180 650,230\' fill=\'none\' stroke=\'%231da1f2\' stroke-width=\'6\'/></svg>")',
+                    content: `
+                        <div class="grid md:grid-cols-3 gap-8 mb-8">
+                            <div class="md:col-span-2">
+                                <h3 class="text-2xl font-bold text-white mb-4">Viral Content & Community Growth</h3>
+                                <p class="text-lg mb-6 leading-relaxed">
+                                    Built and managed high-engagement Twitter presence through strategic content creation and community engagement. Developed viral content strategies that significantly increased follower base and brand awareness through authentic storytelling and trend analysis.
+                                </p>
+                                
+                                <h4 class="text-xl font-semibold text-blue-500 mb-3">Content Strategy</h4>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-blue-500 mt-1">•</span>
+                                        <span>Viral content creation with data-driven insights</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-blue-500 mt-1">•</span>
+                                        <span>Community engagement and relationship building</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-blue-500 mt-1">•</span>
+                                        <span>Brand storytelling through thread narratives</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-blue-500 mt-1">•</span>
+                                        <span>Real-time trend analysis and content optimization</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-semibold text-green-500 mb-3">Growth Metrics</h4>
+                                <div class="space-y-3 mb-6">
+                                    <div class="bg-gray-800 p-3 rounded">
+                                        <div class="text-2xl font-bold text-green-500">300%</div>
+                                        <div class="text-sm text-gray-400">Follower Growth</div>
+                                    </div>
+                                    <div class="bg-gray-800 p-3 rounded">
+                                        <div class="text-2xl font-bold text-blue-500">500K+</div>
+                                        <div class="text-sm text-gray-400">Monthly Impressions</div>
+                                    </div>
+                                    <div class="bg-gray-800 p-3 rounded">
+                                        <div class="text-2xl font-bold text-purple-500">15%</div>
+                                        <div class="text-sm text-gray-400">Engagement Rate</div>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="text-xl font-semibold text-yellow-500 mb-3">Content Types</h4>
+                                <div class="space-y-2">
+                                    <span class="badge">Thread Stories</span>
+                                    <span class="badge">Industry Insights</span>
+                                    <span class="badge">Behind-the-Scenes</span>
+                                    <span class="badge">Viral Memes</span>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+            
+            const project = projects[projectId];
+            if (project) {
+                modalTitle.textContent = project.title;
+                modalContent.innerHTML = project.content;
+                modalHeader.style.background = project.background;
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Row scrolling functionality
+        function scrollRow(button, direction) {
+            const container = button.parentElement.querySelector('.row-content');
+            const scrollAmount = 240 * 3; // Width of 3 cards
+            
+            if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(0, 0, 0, 0.9)';
+            } else {
+                nav.style.background = 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, transparent 100%)';
+            }
+        });
+
+        // Add Netflix-style loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9808d1cff3f2b82b',t:'MTc1ODExNDM3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
