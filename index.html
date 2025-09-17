@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anil Mugle - Marketing Strategist | Storyteller | Digital Growth</title>
+    <title>Marketing Strategist | Storyteller | Digital Growth</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Netflix+Sans:wght@300;400;500;600;700;800&family=Helvetica+Neue:wght@300;400;500;600;700&display=swap');
@@ -13,14 +13,100 @@
         }
         
         .netflix-bg {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect width="1920" height="1080" fill="%23141414"/><circle cx="300" cy="200" r="2" fill="%23ffd700" opacity="0.3"/><circle cx="800" cy="150" r="1" fill="%23ff0000" opacity="0.4"/><circle cx="1200" cy="300" r="1.5" fill="%23ffffff" opacity="0.2"/><circle cx="1600" cy="250" r="1" fill="%23ffd700" opacity="0.3"/></svg>');
-            background-size: cover;
-            background-position: center;
+            background: 
+                linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.9) 100%),
+                radial-gradient(circle at 70% 30%, rgba(229,9,20,0.15) 0%, transparent 60%),
+                radial-gradient(circle at 30% 70%, rgba(255,215,0,0.1) 0%, transparent 60%),
+                url('https://lh3.googleusercontent.com/d/1b3nJ_IsTXyoCc3M3T6Hqi4zhPR81bgc9');
+            background-size: cover, 1200px 1200px, 1000px 1000px, cover;
+            background-position: center, top right, bottom left, center 20%;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .netflix-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(229,9,20,0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(255,215,0,0.2) 0%, transparent 50%);
+            animation: backgroundPulse 8s ease-in-out infinite alternate;
+        }
+        
+        @keyframes backgroundPulse {
+            0% { opacity: 0.5; }
+            100% { opacity: 0.9; }
+        }
+        
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            width: 20px;
+            height: 20px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            width: 15px;
+            height: 15px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            width: 25px;
+            height: 25px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        .floating-element:nth-child(4) {
+            width: 12px;
+            height: 12px;
+            top: 40%;
+            left: 70%;
+            animation-delay: 1s;
+        }
+        
+        .floating-element:nth-child(5) {
+            width: 18px;
+            height: 18px;
+            top: 70%;
+            left: 50%;
+            animation-delay: 3s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.9; }
         }
         
         .hero-content {
-            background: linear-gradient(77deg, rgba(0,0,0,0.6) 0%, transparent 85%);
+            background: linear-gradient(77deg, rgba(0,0,0,0.5) 0%, transparent 85%);
         }
         
         .netflix-button {
@@ -397,18 +483,24 @@
 
     <!-- Hero Section -->
     <section class="relative h-screen netflix-bg">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
         <div class="hero-content h-full flex items-center">
             <div class="max-w-7xl mx-auto px-4 py-20">
                 <div class="max-w-2xl">
                     <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">
-                        Marketing<br>
-                        <span class="text-red-600">Strategist</span>
+                        <span class="text-red-600">Marketing Strategist</span>
                     </h1>
                     <h2 class="text-xl md:text-2xl text-gray-300 mb-6 font-light">
                         Storyteller | Growth Hacker | Digital Innovation Expert
                     </h2>
                     <p class="text-lg text-gray-200 mb-8 max-w-xl leading-relaxed">
-                        From AI challenges at Thales to launching French snack brands, I craft data-driven marketing strategies that turn stories into growth.
+                        From AI challenges at Thales to developing French snack brands, I craft data-driven marketing strategies that turn stories into growth.
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4">
@@ -453,8 +545,8 @@
 
                 <div class="netflix-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 240 135&quot;><rect width=&quot;240&quot; height=&quot;135&quot; fill=&quot;%23000&quot;/><rect x=&quot;80&quot; y=&quot;40&quot; width=&quot;80&quot; height=&quot;50&quot; rx=&quot;8&quot; fill=&quot;%23ffd700&quot;/><text x=&quot;120&quot; y=&quot;70&quot; text-anchor=&quot;middle&quot; fill=&quot;%23000&quot; font-size=&quot;16&quot; font-weight=&quot;bold&quot;>M</text><circle cx=&quot;60&quot; cy=&quot;30&quot; r=&quot;4&quot; fill=&quot;%23ffd700&quot; opacity=&quot;0.7&quot;/><circle cx=&quot;180&quot; cy=&quot;35&quot; r=&quot;3&quot; fill=&quot;%23ffd700&quot; opacity=&quot;0.7&quot;/><text x=&quot;120&quot; y=&quot;115&quot; text-anchor=&quot;middle&quot; fill=&quot;%23fff&quot; font-size=&quot;12&quot; font-weight=&quot;bold&quot;>MOHARE</text></svg>')" onclick="openModal('mohare')">
                     <div class="card-overlay">
-                        <div class="card-title">Mohare Brand Launch</div>
-                        <div class="card-subtitle">Branding • Launch • France</div>
+                        <div class="card-title">Mohare Brand Development</div>
+                        <div class="card-subtitle">Branding • In Progress • France</div>
                     </div>
                 </div>
 
@@ -630,17 +722,14 @@
     <!-- About Section -->
     <section id="about" class="profile-section">
         <div class="profile-card">
-            <div class="flex flex-col md:flex-row items-center gap-8">
-                <div class="flex-shrink-0">
-                    <img src="https://lh3.googleusercontent.com/d/1b3nJ_IsTXyoCc3M3T6Hqi4zhPR81bgc9" alt="Anil Mugle" class="profile-image" onerror="this.src='data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 120 120&quot;><rect width=&quot;120&quot; height=&quot;120&quot; rx=&quot;60&quot; fill=&quot;%23e50914&quot;/><text x=&quot;60&quot; y=&quot;70&quot; text-anchor=&quot;middle&quot; fill=&quot;white&quot; font-size=&quot;40&quot; font-weight=&quot;bold&quot;>AM</text></svg>'; this.alt='Anil Mugle';">
-                </div>
-                <div class="flex-1 text-center md:text-left">
-                    <h2 class="text-3xl font-bold mb-2 text-white">Anil Mugle</h2>
-                    <p class="text-xl text-gray-300 mb-4">Marketing Analyst | Storyteller | Growth Hacker</p>
+            <div class="flex flex-col items-center text-center">
+                <div class="w-full">
+                    <h2 class="text-3xl font-bold mb-2 text-white">Marketing Strategist</h2>
+                    <p class="text-xl text-gray-300 mb-4">Storyteller | Growth Hacker | Digital Innovation Expert</p>
                     
                     <div class="mb-6">
                         <p class="text-gray-400 mb-3 text-sm">Currently Watching:</p>
-                        <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                        <div class="flex flex-wrap gap-2 justify-center">
                             <span class="badge">Brand Building</span>
                             <span class="badge">SEO Mastery</span>
                             <span class="badge">Digital Ads</span>
@@ -650,7 +739,7 @@
                     
                     <div class="mb-6">
                         <p class="text-gray-400 mb-3 text-sm">Languages:</p>
-                        <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                        <div class="flex flex-wrap gap-2 justify-center">
                             <span class="badge language-badge">EN</span>
                             <span class="badge language-badge">FR</span>
                             <span class="badge language-badge">HI</span>
@@ -659,8 +748,8 @@
                         </div>
                     </div>
                     
-                    <p class="text-gray-300 leading-relaxed">
-                        From crafting AI solutions at Thales to launching premium snack brands in France, I specialize in turning complex marketing challenges into growth opportunities. My approach combines data-driven insights with compelling storytelling to create campaigns that resonate and convert.
+                    <p class="text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                        From crafting AI solutions at Thales to developing premium snack brands in France, I specialize in turning complex marketing challenges into growth opportunities. My approach combines data-driven insights with compelling storytelling to create campaigns that resonate and convert.
                     </p>
                 </div>
             </div>
@@ -838,60 +927,60 @@
                     `
                 },
                 mohare: {
-                    title: 'Mohare Brand Launch',
+                    title: 'Mohare Brand Development',
                     background: 'linear-gradient(rgba(0,0,0,0.4), rgba(24,24,24,1)), url("data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 850 400\'><rect width=\'850\' height=\'400\' fill=\'%232d1810\'/><rect x=\'350\' y=\'150\' width=\'150\' height=\'100\' rx=\'10\' fill=\'%23ffd700\'/><text x=\'425\' y=\'210\' text-anchor=\'middle\' fill=\'%23000\' font-size=\'24\' font-weight=\'bold\'>MOHARE</text></svg>")',
                     content: `
                         <div class="grid md:grid-cols-3 gap-8 mb-8">
                             <div class="md:col-span-2">
-                                <h3 class="text-2xl font-bold text-white mb-4">Premium French Snack Brand</h3>
+                                <h3 class="text-2xl font-bold text-white mb-4">Premium French Snack Brand Overview</h3>
                                 <p class="text-lg mb-6 leading-relaxed">
-                                    Successfully launched Mohare, a premium French snack brand featuring Makhana (fox nuts). Led the complete brand development process from concept to market entry, including brand identity, packaging design, and comprehensive marketing strategy.
+                                    Developing Mohare, a premium French snack brand featuring Makhana (fox nuts). Started in August 2025, leading the complete brand development process from concept through pre-launch phase, including brand identity, packaging design, and comprehensive go-to-market strategy.
                                 </p>
                                 
-                                <h4 class="text-xl font-semibold text-yellow-500 mb-3">Brand Development</h4>
+                                <h4 class="text-xl font-semibold text-yellow-500 mb-3">Development Progress</h4>
                                 <ul class="space-y-2 mb-6">
                                     <li class="flex items-start gap-3">
                                         <span class="text-yellow-500 mt-1">•</span>
-                                        <span>Complete brand identity and visual system design</span>
+                                        <span>Complete brand identity and visual system design ✓</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <span class="text-yellow-500 mt-1">•</span>
-                                        <span>Premium packaging development with sustainable materials</span>
+                                        <span>Premium packaging development with sustainable materials ✓</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <span class="text-yellow-500 mt-1">•</span>
-                                        <span>Market positioning as healthy luxury snack alternative</span>
+                                        <span>Market positioning as healthy luxury snack alternative ✓</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <span class="text-yellow-500 mt-1">•</span>
-                                        <span>Multi-channel launch campaign execution</span>
+                                        <span>Multi-channel launch strategy development 🔄</span>
                                     </li>
                                 </ul>
                             </div>
                             
                             <div>
-                                <h4 class="text-xl font-semibold text-green-500 mb-3">Launch Results</h4>
+                                <h4 class="text-xl font-semibold text-blue-500 mb-3">Projected Impact</h4>
                                 <div class="space-y-3 mb-6">
                                     <div class="bg-gray-800 p-3 rounded">
-                                        <div class="text-2xl font-bold text-green-500">150%</div>
-                                        <div class="text-sm text-gray-400">Sales Target Exceeded</div>
+                                        <div class="text-2xl font-bold text-blue-500">Aug 2025</div>
+                                        <div class="text-sm text-gray-400">Target Launch</div>
                                     </div>
                                     <div class="bg-gray-800 p-3 rounded">
-                                        <div class="text-2xl font-bold text-blue-500">25+</div>
-                                        <div class="text-sm text-gray-400">Retail Partners</div>
+                                        <div class="text-2xl font-bold text-green-500">15+</div>
+                                        <div class="text-sm text-gray-400">Target Retail Partners</div>
                                     </div>
                                     <div class="bg-gray-800 p-3 rounded">
-                                        <div class="text-2xl font-bold text-purple-500">4.8/5</div>
-                                        <div class="text-sm text-gray-400">Customer Rating</div>
+                                        <div class="text-2xl font-bold text-purple-500">€500K</div>
+                                        <div class="text-sm text-gray-400">Year 1 Revenue Goal</div>
                                     </div>
                                 </div>
                                 
-                                <h4 class="text-xl font-semibold text-red-500 mb-3">Channels</h4>
+                                <h4 class="text-xl font-semibold text-red-500 mb-3">Launch Channels</h4>
                                 <div class="space-y-2">
-                                    <span class="badge">Retail Stores</span>
+                                    <span class="badge">Premium Retail</span>
                                     <span class="badge">E-commerce</span>
                                     <span class="badge">Social Media</span>
-                                    <span class="badge">Influencer Marketing</span>
+                                    <span class="badge">Influencer Network</span>
                                 </div>
                             </div>
                         </div>
@@ -1020,5 +1109,5 @@
             }, 100);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9808d1cff3f2b82b',t:'MTc1ODExNDM3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'980ac892a277dcfc',t:'MTc1ODEzNDk2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
