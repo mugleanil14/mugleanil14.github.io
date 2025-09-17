@@ -14,15 +14,22 @@
         
         .netflix-bg {
             background: 
-                linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.9) 100%),
+                linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.95) 100%),
                 radial-gradient(circle at 70% 30%, rgba(229,9,20,0.15) 0%, transparent 60%),
                 radial-gradient(circle at 30% 70%, rgba(255,215,0,0.1) 0%, transparent 60%),
                 url('https://lh3.googleusercontent.com/d/1b3nJ_IsTXyoCc3M3T6Hqi4zhPR81bgc9');
-            background-size: cover, 1200px 1200px, 1000px 1000px, cover;
-            background-position: center, top right, bottom left, center 20%;
+            background-size: cover, 1200px 1200px, 1000px 1000px, 150% auto;
+            background-position: center, top right, bottom left, center center;
             background-repeat: no-repeat;
             position: relative;
             overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .netflix-bg {
+                background-size: cover, 800px 800px, 600px 600px, 120% auto;
+                background-position: center, top right, bottom left, center center;
+            }
         }
         
         .netflix-bg::before {
@@ -756,6 +763,56 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="bg-black py-16">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-300">Ready to transform your marketing strategy? Let's connect.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 p-6 rounded-lg text-center">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Email</h3>
+                    <p class="text-gray-300">anilkumar.mugle@kedgebs.com</p>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-lg text-center">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Phone</h3>
+                    <p class="text-gray-300">+33 7 80 84 48 04</p>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-lg text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Location</h3>
+                    <p class="text-gray-300">Paris, France</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-gray-400 mb-4">Let's discuss how we can elevate your brand together</p>
+                <button onclick="window.location.href='mailto:anilkumar.mugle@kedgebs.com'" class="netflix-button play-button px-8 py-3 rounded-md text-lg font-bold">
+                    Send Message
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- Modal -->
     <div id="modal" class="fixed inset-0 z-50 hidden modal">
         <div class="flex items-center justify-center min-h-screen p-4">
@@ -793,13 +850,7 @@
     </div>
 
     <script>
-        function scrollToProjects() {
-            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-        }
 
-        function scrollToAbout() {
-            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-        }
 
         function openModal(projectId) {
             const modal = document.getElementById('modal');
@@ -1100,6 +1151,23 @@
             }
         });
 
+        // Navigation functions
+        function scrollToProjects() {
+            const projectsSection = document.getElementById('projects');
+            projectsSection.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+
+        function scrollToAbout() {
+            const aboutSection = document.getElementById('about');
+            aboutSection.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+
         // Add Netflix-style loading animation
         window.addEventListener('load', function() {
             document.body.style.opacity = '0';
@@ -1109,5 +1177,5 @@
             }, 100);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'980ac892a277dcfc',t:'MTc1ODEzNDk2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'980ad49490b47902',t:'MTc1ODEzNTQ1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
